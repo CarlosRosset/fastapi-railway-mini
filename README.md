@@ -60,7 +60,7 @@ Este template vem com documentação abrangente para ajudá-lo a começar rapida
 
 2. Clone o repositório:
 ```bash
-git clone https://github.com/yourusername/template-railway-fastapi.git
+git clone https://github.com/CarlosRosset/template-railway-fastapi.git
 cd template-railway-fastapi
 ```
 
