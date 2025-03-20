@@ -77,6 +77,11 @@ Este documento serve como ponto de entrada para a documentação abrangente do t
     - Variáveis de ambiente no Railway
     - Solução de problemas
 
+13. [Renomeando o Repositório](./renomeando_repositorio.md)
+    - Passos na interface do GitHub
+    - Atualização no repositório local
+    - Verificação e considerações
+
 ## Como Utilizar esta Documentação
 
 Cada seção desta documentação foi projetada para ser consumida independentemente, mas recomendamos começar pela [Visão Geral do Projeto](./visao_geral.md) para entender a arquitetura e os princípios por trás deste template.
