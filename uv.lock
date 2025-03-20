@@ -481,7 +481,7 @@ wheels = [
 ]
 
 [[package]]
-name = "minimalistic-fastapi-template"
+name = "template-railway-fastapi"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
