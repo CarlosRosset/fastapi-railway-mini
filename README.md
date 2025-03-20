@@ -1,128 +1,128 @@
 # Template Railway FastAPI 🚀
 Template para deploy de aplicações FastAPI no Railway com PostgreSQL - Uma solução moderna e pronta para produção.
 
-## Features ✨
-- 🔄 Complete CRUD operations for heroes
-- 📊 Async SQLAlchemy with PostgreSQL
-- 🔄 Automatic Alembic migrations
-- 🏗️ Clean architecture with repository pattern
-- ⚠️ Custom exception handling
-- 🔍 CI and testing pipeline
-- 🧹 Linter setup with pre-commit hooks
-- 🚂 One-click Railway deployment
+## Funcionalidades ✨
+- 🔄 Operações CRUD completas para heróis
+- 📊 SQLAlchemy assíncrono com PostgreSQL
+- 🔄 Migrações automáticas com Alembic
+- 🏗️ Arquitetura limpa com padrão de repositório
+- ⚠️ Tratamento personalizado de exceções
+- 🔍 Pipeline de CI e testes
+- 🧹 Configuração de linter com hooks de pre-commit
+- 🚂 Deploy com um clique no Railway
 
-## Deploy Now! 🚀
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/wbTudS?referralCode=beBXJA)
+## Faça o Deploy Agora! 🚀
+[![Deploy no Railway](https://railway.com/button.svg)](https://railway.com/template/wbTudS?referralCode=beBXJA)
 
-## Project Structure 📁
+## Estrutura do Projeto 📁
 ```
 api/
-├── core/              # Core functionality
-│   ├── config.py      # Environment and app configuration
-│   ├── database.py    # Database connection and sessions
-│   ├── exceptions.py  # Global exception handlers
-│   ├── logging.py     # Logging configuration
-│   └── security.py    # Authentication and security
+├── core/              # Funcionalidades principais
+│   ├── config.py      # Configuração de ambiente e aplicação
+│   ├── database.py    # Conexão e sessões do banco de dados
+│   ├── exceptions.py  # Manipuladores globais de exceções
+│   ├── logging.py     # Configuração de log
+│   └── security.py    # Autenticação e segurança
 ├── src/
-│   ├── heroes/        # Heroes module
-│   │   ├── models.py      # Database models
-│   │   ├── repository.py  # Data access layer
-│   │   ├── routes.py      # API endpoints
-│   │   └── schemas.py     # Pydantic models
-│   └── users/         # Users module
-│       ├── models.py      # User models
-│       ├── repository.py  # User data access
-│       ├── routes.py      # User endpoints
-│       └── schemas.py     # User schemas
-├── utils/            # Utility functions
-└── main.py          # Application entry point
+│   ├── heroes/        # Módulo de heróis
+│   │   ├── models.py      # Modelos de banco de dados
+│   │   ├── repository.py  # Camada de acesso a dados
+│   │   ├── routes.py      # Endpoints da API
+│   │   └── schemas.py     # Modelos Pydantic
+│   └── users/         # Módulo de usuários
+│       ├── models.py      # Modelos de usuários
+│       ├── repository.py  # Acesso a dados de usuários
+│       ├── routes.py      # Endpoints de usuários
+│       └── schemas.py     # Schemas de usuários
+├── utils/            # Funções utilitárias
+└── main.py          # Ponto de entrada da aplicação
 ```
 
-## Requirements 📋
+## Requisitos 📋
 - Python 3.8+
 - PostgreSQL
 
-## Documentation 📚
-This template comes with comprehensive documentation to help you get started quickly:
+## Documentação 📚
+Este template vem com documentação abrangente para ajudá-lo a começar rapidamente:
 
-- [**Installation & Execution**](docs/instalacao_execucao.md) - Setup your environment with UV
-- [**Dependency Management**](docs/gerenciamento_dependencias.md) - Manage Python packages with UV
-- [**Database Guide**](docs/banco_de_dados_passo_a_passo.md) - Step-by-step guide for database setup
-- [**Creating Routes**](docs/criacao_rotas.md) - Learn how to add new endpoints
-- [**Alembic Migrations**](docs/alembic_migracao.md) - Database migration workflows
-- [**Authentication**](docs/autenticacao_jwt.md) - JWT authentication setup
-- [**Testing**](docs/testes.md) - Writing and running tests
-- [**Best Practices**](docs/boas_praticas.md) - Code standards and patterns
-- [**Complete Documentation Index**](docs/index.md) - Full list of documentation resources
+- [**Instalação e Execução**](docs/instalacao_execucao.md) - Configure seu ambiente com UV
+- [**Gerenciamento de Dependências**](docs/gerenciamento_dependencias.md) - Gerencie pacotes Python com UV
+- [**Guia de Banco de Dados**](docs/banco_de_dados_passo_a_passo.md) - Guia passo a passo para configuração do banco de dados
+- [**Criação de Rotas**](docs/criacao_rotas.md) - Aprenda como adicionar novos endpoints
+- [**Migrações com Alembic**](docs/alembic_migracao.md) - Fluxos de trabalho de migração de banco de dados
+- [**Autenticação**](docs/autenticacao_jwt.md) - Configuração de autenticação JWT
+- [**Testes**](docs/testes.md) - Escrevendo e executando testes
+- [**Boas Práticas**](docs/boas_praticas.md) - Padrões e normas de código
+- [**Índice Completo da Documentação**](docs/index.md) - Lista completa de recursos de documentação
 
-## Setup 🛠️
-1. Install uv (follow instructions [here](https://docs.astral.sh/uv/#getting-started))
+## Configuração 🛠️
+1. Instale o uv (siga as instruções [aqui](https://docs.astral.sh/uv/#getting-started))
 
-2. Clone the repository:
+2. Clone o repositório:
 ```bash
 git clone https://github.com/yourusername/template-railway-fastapi.git
 cd template-railway-fastapi
 ```
 
-3. Install dependencies with uv:
+3. Instale as dependências com uv:
 ```bash
 uv sync
 ```
 
-4. Set up environment variables:
+4. Configure as variáveis de ambiente:
 ```bash
 cp .env.example .env
-# Edit .env with your database credentials
+# Edite o arquivo .env com suas credenciais de banco de dados
 ```
 
-> 💡 **Important**: 
-> - The DATABASE_URL must start with `postgresql+asyncpg://` (e.g., `postgresql+asyncpg://user:pass@localhost:5432/dbname`)
-> - After updating environment variables, close and reopen VS Code to reload the configuration properly. VS Code will automatically activate the virtual environment when you reopen.
+> 💡 **Importante**: 
+> - A DATABASE_URL deve começar com `postgresql+asyncpg://` (ex: `postgresql+asyncpg://usuario:senha@localhost:5432/nomebanco`)
+> - Após atualizar as variáveis de ambiente, feche e reabra o VS Code para recarregar a configuração adequadamente. O VS Code ativará automaticamente o ambiente virtual quando você reabrir.
 
-5. Start the application:
+5. Inicie a aplicação:
 
-Using terminal:
+Usando o terminal:
 ```bash
 uv run uvicorn api.main:app
 ```
 
-Using VS Code:
-> 💡 If you're using VS Code, we've included run configurations in the `.vscode` folder. Just press `F5` or use the "Run and Debug" panel to start the application!
+Usando o VS Code:
+> 💡 Se você estiver usando o VS Code, incluímos configurações de execução na pasta `.vscode`. Basta pressionar `F5` ou usar o painel "Executar e Depurar" para iniciar a aplicação!
 
-6. (Optional) Enable pre-commit hooks for linting:
+6. (Opcional) Habilite hooks de pre-commit para linting:
 ```bash
 uv run pre-commit install
 ```
-> 💡 This will enable automatic code formatting and linting checks before each commit
+> 💡 Isso habilitará a formatação automática de código e verificações de linting antes de cada commit
 
-## Creating a Migration 🔄
-1. Make changes to your models
-2. Generate migration:
+## Criando uma Migração 🔄
+1. Faça alterações em seus modelos
+2. Gere a migração:
 ```bash
-alembic revision --autogenerate -m "your migration message"
+alembic revision --autogenerate -m "sua mensagem de migração"
 ```
 
-Note: Migrations will be automatically applied when you start the application - no need to run `alembic upgrade head` manually!
+Observação: As migrações serão aplicadas automaticamente quando você iniciar a aplicação - não é necessário executar `alembic upgrade head` manualmente!
 
-## API Endpoints 📊
-### Heroes
-- `GET /heroes` - List all heroes
-- `GET /heroes/{id}` - Get a specific hero
-- `POST /heroes` - Create a new hero
-- `PATCH /heroes/{id}` - Update a hero
-- `DELETE /heroes/{id}` - Delete a hero
+## Endpoints da API 📊
+### Heróis
+- `GET /heroes` - Listar todos os heróis
+- `GET /heroes/{id}` - Obter um herói específico
+- `POST /heroes` - Criar um novo herói
+- `PATCH /heroes/{id}` - Atualizar um herói
+- `DELETE /heroes/{id}` - Excluir um herói
 
-### Authentication
-- `POST /auth/register` - Register a new user
-- `POST /auth/login` - Login and get access token
-- `GET /auth/me` - Get current user profile
+### Autenticação
+- `POST /auth/register` - Registrar um novo usuário
+- `POST /auth/login` - Fazer login e obter token de acesso
+- `GET /auth/me` - Obter perfil do usuário atual
 
-## Example Usage 📝
-Create a new hero:
+## Exemplo de Uso 📝
+Criar um novo herói:
 ```bash
 curl -X POST "http://localhost:8000/heroes/" -H "Content-Type: application/json" -d '{
     "name": "Peter Parker",
-    "alias": "Spider-Man",
-    "powers": "Wall-crawling, super strength, spider-sense"
+    "alias": "Homem-Aranha",
+    "powers": "Escalar paredes, super força, sentido aranha"
 }'
 ```
