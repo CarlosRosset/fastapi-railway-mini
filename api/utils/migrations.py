@@ -1,6 +1,9 @@
 import os
 import subprocess
 import sys
+from api.core.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 def run_migrations():
@@ -9,6 +12,9 @@ def run_migrations():
 
     This method is more compatible with environments like Vercel where direct
     command execution might be restricted.
+    
+    A falha nas migrações não irá impedir a inicialização da API, permitindo
+    que a aplicação continue funcionando mesmo sem banco de dados.
     """
     try:
         # Ensure the current directory is in the Python path
@@ -30,10 +36,14 @@ def run_migrations():
         print("Migrations completed successfully!")
 
     except subprocess.CalledProcessError as e:
-        print(f"Migration failed. Error: {e}")
-        print("Standard output:", e.stdout)
-        print("Standard error:", e.stderr)
-        raise
+        logger.error(f"Migration failed. Error: {e}")
+        logger.error(f"Standard output: {e.stdout}")
+        logger.error(f"Standard error: {e.stderr}")
+        # Não propaga o erro para permitir que a aplicação continue
+        return False
     except Exception as e:
-        print(f"An error occurred while running migrations: {e}")
-        raise
+        logger.error(f"An error occurred while running migrations: {e}")
+        # Não propaga o erro para permitir que a aplicação continue
+        return False
+    
+    return True
