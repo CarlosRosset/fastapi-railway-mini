@@ -42,6 +42,19 @@ api/
 - Python 3.8+
 - PostgreSQL
 
+## Documentation 📚
+This template comes with comprehensive documentation to help you get started quickly:
+
+- [**Installation & Execution**](docs/instalacao_execucao.md) - Setup your environment with UV
+- [**Dependency Management**](docs/gerenciamento_dependencias.md) - Manage Python packages with UV
+- [**Database Guide**](docs/banco_de_dados_passo_a_passo.md) - Step-by-step guide for database setup
+- [**Creating Routes**](docs/criacao_rotas.md) - Learn how to add new endpoints
+- [**Alembic Migrations**](docs/alembic_migracao.md) - Database migration workflows
+- [**Authentication**](docs/autenticacao_jwt.md) - JWT authentication setup
+- [**Testing**](docs/testes.md) - Writing and running tests
+- [**Best Practices**](docs/boas_praticas.md) - Code standards and patterns
+- [**Complete Documentation Index**](docs/index.md) - Full list of documentation resources
+
 ## Setup 🛠️
 1. Install uv (follow instructions [here](https://docs.astral.sh/uv/#getting-started))
 
