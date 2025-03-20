@@ -1,7 +1,7 @@
 [project]
-name = "minimalistic-fastapi-template"
+name = "template-railway-fastapi"
 version = "0.1.0"
-description = "Add your description here"
+description = "Template para deploy de aplicações FastAPI no Railway com PostgreSQL"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

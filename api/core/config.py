@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     """Application settings."""
 
-    PROJECT_NAME: str = "Hero API"
+    PROJECT_NAME: str = "Template Railway FastAPI"
     DATABASE_URL: str
     DEBUG: bool = False
 

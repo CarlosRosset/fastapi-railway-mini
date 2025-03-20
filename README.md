@@ -1,5 +1,5 @@
-# Hero API 🦸‍♂️
-A modern, production-ready FastAPI template for building scalable APIs.
+# Template Railway FastAPI 🚀
+Template para deploy de aplicações FastAPI no Railway com PostgreSQL - Uma solução moderna e pronta para produção.
 
 ## Features ✨
 - 🔄 Complete CRUD operations for heroes
@@ -60,8 +60,8 @@ This template comes with comprehensive documentation to help you get started qui
 
 2. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/minimalistic-fastapi-template.git
-cd minimalistic-fastapi-template
+git clone https://github.com/yourusername/template-railway-fastapi.git
+cd template-railway-fastapi
 ```
 
 3. Install dependencies with uv:

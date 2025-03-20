@@ -1,4 +1,4 @@
-# Documentação Completa do Template FastAPI
+# Documentação Completa do Template Railway FastAPI
 
 ## Introdução
 
@@ -71,6 +71,12 @@ Este documento serve como ponto de entrada para a documentação abrangente do t
     - Variáveis sensíveis
     - Múltiplos ambientes
 
+12. [Deploy no Railway](./deploy_railway.md)
+    - Configuração da plataforma Railway
+    - Integração com PostgreSQL
+    - Variáveis de ambiente no Railway
+    - Solução de problemas
+
 ## Como Utilizar esta Documentação
 
 Cada seção desta documentação foi projetada para ser consumida independentemente, mas recomendamos começar pela [Visão Geral do Projeto](./visao_geral.md) para entender a arquitetura e os princípios por trás deste template.
@@ -83,4 +89,4 @@ Esta documentação é um trabalho em constante evolução. Se você identificar
 
 ---
 
-*Última atualização: Maio de 2024*
+*Última atualização: Março de 2025*
