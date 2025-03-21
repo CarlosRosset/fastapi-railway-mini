@@ -29,21 +29,38 @@ Este guia explica como implantar o Template Railway FastAPI na plataforma Railwa
 No serviço da sua aplicação (não no banco de dados), configure as seguintes variáveis de ambiente:
 
 ```bash
-# Esta variável é automaticamente preenchida pelo Railway
-DATABASE_URL=postgresql+asyncpg://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}
+# Nome descritivo do projeto
+PROJECT_NAME="Template Railway FastAPI"
 
-# Substitua por uma chave segura
-JWT_SECRET=sua-chave-secreta-segura-aqui
+# URL de conexão usando referências ao serviço PostgreSQL
+DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{POSTGRES_DB}}"
+
+# Configurações de JWT
+JWT_SECRET="sua-chave-secreta-segura-aqui"
+JWT_ALGORITHM="HS256"
+JWT_EXPIRATION=30
 
 # Recomendado false em produção
 DEBUG=false
 ```
 
 #### Notas importantes sobre DATABASE_URL:
-- O Railway já fornece as variáveis PGUSER, PGPASSWORD, PGHOST, PGPORT e PGDATABASE
-- A variável DATABASE_URL deve seguir o formato exato acima para compatibilidade com SQLAlchemy e asyncpg
+- O formato acima usa referências especiais do Railway entre chaves duplas `${{}}` que são substituídas durante o deploy
+- As referências `POSTGRES_USER`, `POSTGRES_PASSWORD`, `RAILWAY_PRIVATE_DOMAIN` e `POSTGRES_DB` são automaticamente fornecidas quando você vincula seu serviço ao banco de dados PostgreSQL
+- Este formato é necessário para compatibilidade com SQLAlchemy e asyncpg
 
-### 4. Verificar Configurações de Deploy
+### 4. Vincular Serviços
+
+Para garantir que as referências entre serviços funcionem corretamente:
+
+1. No painel do Railway, acesse o serviço da sua aplicação FastAPI
+2. Na aba "Variables", clique em "Variable Reference"
+3. Selecione o serviço PostgreSQL que você criou anteriormente
+4. O Railway criará automaticamente referências para todas as variáveis do PostgreSQL
+
+> **Importante**: Após vincular os serviços, o Railway permite que você acesse as variáveis do banco de dados usando a sintaxe `${{NomeDoServiço.NomeDaVariável}}` como mostrado na configuração do DATABASE_URL acima.
+
+### 5. Verificar Configurações de Deploy
 
 1. Certifique-se de que o Railway está usando o Procfile do projeto para iniciar a aplicação
 2. Confirme que a porta está sendo configurada corretamente via variável PORT

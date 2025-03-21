@@ -133,3 +133,26 @@ curl -X POST "http://localhost:8000/heroes/" -H "Content-Type: application/json"
     "powers": "Escalar paredes, super força, sentido aranha"
 }'
 ```
+
+## Deploy no Railway 🚄
+
+### Configuração Rápida
+
+1. Clique no botão "Deploy no Railway" acima
+2. Configure uma instância PostgreSQL no Railway
+3. Vincule o PostgreSQL ao seu serviço FastAPI
+4. Configure as variáveis de ambiente:
+
+```bash
+# URL de conexão usando referências ao PostgreSQL
+DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{POSTGRES_DB}}"
+
+# Configure uma chave JWT segura
+JWT_SECRET="sua-chave-secreta-aqui"
+```
+
+### Instruções Detalhadas
+
+Para instruções passo a passo sobre deploy no Railway, incluindo configuração de variáveis, vinculação de serviços e solução de problemas, consulte:
+
+- [Guia Completo de Deploy no Railway](docs/deploy_railway.md)
