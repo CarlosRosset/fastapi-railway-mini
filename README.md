@@ -53,6 +53,7 @@ Este template vem com documentação abrangente para ajudá-lo a começar rapida
 - [**Autenticação**](docs/autenticacao_jwt.md) - Configuração de autenticação JWT
 - [**Testes**](docs/testes.md) - Escrevendo e executando testes
 - [**Boas Práticas**](docs/boas_praticas.md) - Padrões e normas de código
+- [**Resiliência da API**](docs/resiliencia_api.md) - Tratamento de falhas e alta disponibilidade
 - [**Índice Completo da Documentação**](docs/index.md) - Lista completa de recursos de documentação
 
 ## Configuração 🛠️
@@ -105,6 +106,10 @@ alembic revision --autogenerate -m "sua mensagem de migração"
 Observação: As migrações serão aplicadas automaticamente quando você iniciar a aplicação - não é necessário executar `alembic upgrade head` manualmente!
 
 ## Endpoints da API 📊
+### Rotas Críticas (Resilientes)
+- `GET /` - Rota raiz com informações básicas da API
+- `GET /health` - Verificação de saúde da API e banco de dados
+
 ### Heróis
 - `GET /heroes` - Listar todos os heróis
 - `GET /heroes/{id}` - Obter um herói específico
@@ -116,6 +121,8 @@ Observação: As migrações serão aplicadas automaticamente quando você inici
 - `POST /auth/register` - Registrar um novo usuário
 - `POST /auth/login` - Fazer login e obter token de acesso
 - `GET /auth/me` - Obter perfil do usuário atual
+
+Para uma documentação completa de todas as rotas disponíveis, incluindo exemplos detalhados de requisições e respostas, consulte o [Guia de Rotas da API](docs/rotas_da_api.md).
 
 ## Exemplo de Uso 📝
 Criar um novo herói:

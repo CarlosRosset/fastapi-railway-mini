@@ -16,15 +16,28 @@ async def db_exception_handler(request: Request, call_next):
     Permite que a API continue funcionando mesmo quando ocorrem erros
     de conexão com o banco de dados.
     """
+    
+    # Todas as rotas devem funcionar igualmente, sem verificação prévia de disponibilidade
+    # Apenas as rotas críticas recebem tratamento especial quando ocorre um erro
+    safe_paths = ["/", "/health", "/docs", "/redoc", "/openapi.json"]
+    # Adiciona rotas de autenticação à lista de rotas seguras
+    auth_paths = ["/auth/register", "/auth/login", "/auth/me"]
+    is_static = request.url.path.startswith("/static/")
+    is_safe_path = request.url.path in safe_paths or request.url.path in auth_paths or is_static
+    
+    # Para todas as rotas, tentamos executar normalmente e só capturamos erros quando ocorrem
     try:
+        
+        # Executa a rota normalmente se tudo estiver ok ou é uma rota crítica
         return await call_next(request)
+    
     except SQLAlchemyError as e:
         # Log completo do erro para depuração
         logger.error(f"Database error: {str(e)}")
         logger.debug(f"Traceback: {traceback.format_exc()}")
         
         # Verifica se é rota de saúde ou raiz - essas devem continuar funcionando
-        if request.url.path in ["/", "/health", "/docs", "/redoc", "/openapi.json"]:
+        if is_safe_path:
             logger.warning(f"Critical route affected by DB error: {request.url.path}")
             # Para essas rotas, tentar retornar uma resposta parcial
             if request.url.path == "/health":

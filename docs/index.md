@@ -82,6 +82,18 @@ Este documento serve como ponto de entrada para a documentação abrangente do t
     - Atualização no repositório local
     - Verificação e considerações
 
+14. [Resiliência da API](./resiliencia_api.md)
+    - Conceito de rotas críticas
+    - Middleware de tratamento de falhas
+    - Comportamento com banco de dados indisponível
+    - Testes de resiliência
+
+15. [Rotas da API](./rotas_da_api.md)
+    - Documentação centralizada de todas as rotas
+    - Exemplos de requisições e respostas
+    - Informações sobre autenticação
+    - Testes com curl
+
 ## Como Utilizar esta Documentação
 
 Cada seção desta documentação foi projetada para ser consumida independentemente, mas recomendamos começar pela [Visão Geral do Projeto](./visao_geral.md) para entender a arquitetura e os princípios por trás deste template.

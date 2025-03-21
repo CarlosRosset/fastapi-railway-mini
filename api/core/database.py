@@ -2,9 +2,25 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 from api.core.config import settings
+from api.core.logging import get_logger
+
+logger = get_logger(__name__)
+
+# Variável global para a engine
+_engine = None
+
+
+def get_engine():
+    """Retorna a engine do SQLAlchemy para uso em outras partes da aplicação"""
+    global _engine
+    if _engine is None:
+        logger.debug("Creating SQLAlchemy engine")
+        _engine = create_async_engine(settings.DATABASE_URL, echo=False, future=True)
+    return _engine
+
 
 # Create async engine
-engine = create_async_engine(settings.DATABASE_URL, echo=False, future=True)
+engine = get_engine()
 
 # Create async session factory
 async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
