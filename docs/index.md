@@ -94,6 +94,12 @@ Este documento serve como ponto de entrada para a documentação abrangente do t
     - Informações sobre autenticação
     - Testes com curl
 
+16. [Testes Manuais da API](./testes_manuais_api.md)
+    - Guia prático com exemplos de curl
+    - Fluxo completo de testes com autenticação
+    - Solução de problemas comuns
+    - Script de teste automatizado
+
 ## Como Utilizar esta Documentação
 
 Cada seção desta documentação foi projetada para ser consumida independentemente, mas recomendamos começar pela [Visão Geral do Projeto](./visao_geral.md) para entender a arquitetura e os princípios por trás deste template.
@@ -106,4 +112,4 @@ Esta documentação é um trabalho em constante evolução. Se você identificar
 
 ---
 
-*Última atualização: Março de 2025*
+*Última atualização: 21 de Março de 2025*
