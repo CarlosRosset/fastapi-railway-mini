@@ -145,7 +145,7 @@ curl -X POST "http://localhost:8000/heroes/" -H "Content-Type: application/json"
 
 ```bash
 # URL de conexão usando referências ao PostgreSQL
-DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{POSTGRES_DB}}"
+DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:${{PGPORT}}/${{POSTGRES_DB}}"
 
 # Configure uma chave JWT segura
 JWT_SECRET="sua-chave-secreta-aqui"

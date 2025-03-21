@@ -33,7 +33,7 @@ No serviço da sua aplicação (não no banco de dados), configure as seguintes 
 PROJECT_NAME="Template Railway FastAPI"
 
 # URL de conexão usando referências ao serviço PostgreSQL
-DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{POSTGRES_DB}}"
+DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:${{PGPORT}}/${{POSTGRES_DB}}"
 
 # Configurações de JWT
 JWT_SECRET="sua-chave-secreta-segura-aqui"
