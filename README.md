@@ -143,12 +143,24 @@ curl -X POST "http://localhost:8000/heroes/" -H "Content-Type: application/json"
 3. Vincule o PostgreSQL ao seu serviço FastAPI
 4. Configure as variáveis de ambiente:
 
+**Variáveis Obrigatórias:**
 ```bash
-# URL de conexão usando referências ao PostgreSQL
-DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:${{PGPORT}}/${{POSTGRES_DB}}"
+# URL de conexão - o Railway já fornece automaticamente quando você adiciona PostgreSQL
+DATABASE_URL="${{DATABASE_URL}}"
 
-# Configure uma chave JWT segura
+# Obrigatório: Configure uma chave JWT segura (gerada por você)
 JWT_SECRET="sua-chave-secreta-aqui"
+```
+
+**Variáveis Opcionais (já possuem valores padrão):**
+```bash
+# Recomendado alterar para false em produção
+DEBUG=false
+
+# Customize se necessário 
+PROJECT_NAME="Seu Nome do Projeto"
+JWT_ALGORITHM="HS256"
+JWT_EXPIRATION=30
 ```
 
 ### Instruções Detalhadas

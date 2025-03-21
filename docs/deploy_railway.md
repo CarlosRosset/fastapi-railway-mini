@@ -26,28 +26,55 @@ Este guia explica como implantar o Template Railway FastAPI na plataforma Railwa
 
 ### 3. Configurar Variáveis de Ambiente
 
-No serviço da sua aplicação (não no banco de dados), configure as seguintes variáveis de ambiente:
+No serviço da sua aplicação (não no banco de dados), configure as variáveis de ambiente conforme descrito abaixo.
+
+#### Variáveis Obrigatórias:
 
 ```bash
-# Nome descritivo do projeto
+# Variável de conexão com o banco de dados
+# O Railway já fornece isso automaticamente quando você adiciona um PostgreSQL
+DATABASE_URL="${{DATABASE_URL}}"
+
+# Chave secreta para JWT - É OBRIGATÓRIO configurar manualmente
+# Utilize uma string longa, aleatória e segura
+JWT_SECRET="sua-chave-secreta-segura-aqui"
+```
+
+#### Variáveis Opcionais (com valores padrão):
+
+```bash
+# Nome descritivo do projeto (opcional)
+# Default: "Template Railway FastAPI"
 PROJECT_NAME="Template Railway FastAPI"
 
-# URL de conexão usando referências ao serviço PostgreSQL
-DATABASE_URL="postgresql+asyncpg://${{POSTGRES_USER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:${{PGPORT}}/${{POSTGRES_DB}}"
-
-# Configurações de JWT
-JWT_SECRET="sua-chave-secreta-segura-aqui"
+# Algoritmo JWT (opcional)
+# Default: "HS256"
 JWT_ALGORITHM="HS256"
+
+# Tempo de expiração do JWT em minutos (opcional)
+# Default: 30
 JWT_EXPIRATION=30
 
-# Recomendado false em produção
+# Modo de debug - Recomendado false em produção (opcional)
+# Default: false
 DEBUG=false
 ```
 
-#### Notas importantes sobre DATABASE_URL:
-- O formato acima usa referências especiais do Railway entre chaves duplas `${{}}` que são substituídas durante o deploy
-- As referências `POSTGRES_USER`, `POSTGRES_PASSWORD`, `RAILWAY_PRIVATE_DOMAIN` e `POSTGRES_DB` são automaticamente fornecidas quando você vincula seu serviço ao banco de dados PostgreSQL
-- Este formato é necessário para compatibilidade com SQLAlchemy e asyncpg
+#### Notas importantes sobre variáveis de ambiente:
+
+1. **DATABASE_URL**: 
+   - O Railway já fornece esta variável automaticamente quando você adiciona um PostgreSQL
+   - Você só precisa referenciar com a sintaxe `${{DATABASE_URL}}`
+   - Não é necessário construir manualmente a string de conexão
+
+2. **JWT_SECRET**:
+   - Esta é a única variável que você precisa configurar manualmente
+   - Crítica para a segurança do sistema de autenticação
+   - Nunca use a mesma chave entre ambientes (desenvolvimento/produção)
+
+3. **Variáveis opcionais**:
+   - Só configure se precisar modificar o comportamento padrão
+   - Para ambientes de produção, é recomendado definir `DEBUG=false`
 
 ### 4. Vincular Serviços
 
